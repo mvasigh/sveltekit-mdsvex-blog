@@ -1,5 +1,3 @@
-import parseISO from 'date-fns/parseISO'
-
 const slugRegex = /([\w-]+)\.(svelte\.md|md|svx)/i;
 
 export async function getAllPosts(globArr) {
@@ -15,7 +13,7 @@ export async function getAllPosts(globArr) {
 			slug,
 			{
 				...post.metadata,
-				date: parseISO(post.metadata.date)
+				date: new Date(post.metadata.date)
 			}
 		]);
 		postPromises.push(promise);
