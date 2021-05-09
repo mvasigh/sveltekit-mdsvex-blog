@@ -1,6 +1,8 @@
 {
-  "name": "~TODO~",
+  "name": "sveltekit-mdsvex-blog",
   "version": "0.0.1",
+  "author": "Mehdi Vasigh <mehdi.vasigh@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
