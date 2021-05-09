@@ -1,3 +1,5 @@
+import parseISO from 'date-fns/parseISO'
+
 const slugRegex = /([\w-]+)\.(svelte\.md|md|svx)/i;
 
 export async function getAllPosts(globArr) {
@@ -9,7 +11,13 @@ export async function getAllPosts(globArr) {
 		if (!match || !match[1]) continue;
 
 		const slug = match[1];
-		const promise = resolver().then((post) => [slug, post.metadata]);
+		const promise = resolver().then((post) => [
+			slug,
+			{
+				...post.metadata,
+				date: parseISO(post.metadata.date)
+			}
+		]);
 		postPromises.push(promise);
 	}
 
