@@ -10,8 +10,13 @@
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
+    "mdsvex": "^0.9.0",
     "prettier": "~2.2.1",
     "prettier-plugin-svelte": "^2.2.0",
+    "rehype-autolink-headings": "^5.0.1",
+    "rehype-slug": "^4.0.1",
+    "remark-abbr": "^1.4.1",
+    "remark-github": "^10.0.1",
     "svelte": "^3.34.0"
   },
   "type": "module"
