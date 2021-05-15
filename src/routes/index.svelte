@@ -1,15 +1,11 @@
 <script context="module">
-	const files = import.meta.glob('./posts/*.{md,svx,svelte.md}');
-	import { getAllPosts } from '$lib/util';
-
 	/**
 	 * @type {import('@sveltejs/kit').Load}
 	 */
-	export async function load() {
-		const allPosts = await getAllPosts(files);
-		const posts = allPosts.filter(([_, post]) => post.published);
-
-		posts.sort(([_slugA, a], [_slugB, b]) => a.date > b.date ? -1 : 1);
+	export async function load({ fetch }) {
+		// Use a `limit` querystring parameter to fetch a limited number of posts
+		// e.g. fetch('posts.json?limit=5') for 5 most recent posts
+		const posts = await fetch('/posts.json').then((res) => res.json());
 
 		return {
 			props: {
@@ -37,7 +33,7 @@
 	<a href="https://github.com/mvasigh/sveltekit-mdsvex-blog">View source code on Github.</a>
 </p>
 
-{#each posts as [slug, { title, author, description, date }]}
+{#each posts as { slug, title, author, description, date }}
 	<Article>
 		<ArticleTitle {slug} {title} />
 		<ArticleMeta {author} {date} />
