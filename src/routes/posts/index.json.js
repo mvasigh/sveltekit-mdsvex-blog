@@ -1,6 +1,4 @@
-const slugRegex = /([\w-]+)\.(svelte\.md|md|svx)/i;
-
-
+const slug = path => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
 
 export async function getAllPosts(globArr) {
 	const postPromises = [];
@@ -24,9 +22,13 @@ export async function getAllPosts(globArr) {
 	return Promise.all(postPromises);
 }
 
-export function fromEntries(entries) {
-	return entries.reduce((acc, [key, val]) => {
-		acc[key] = val;
-		return acc;
-	}, {});
+
+/** @type {import('@sveltejs/kit').RequestHandler} */
+export async function get(req) {
+	const files = import.meta.glob('./posts/*.{md,svx,svelte.md}');
+
+  
+
+  console.log(req);
+
 }
