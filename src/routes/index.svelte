@@ -1,15 +1,9 @@
 <script context="module">
-	const files = import.meta.glob('./posts/*.{md,svx,svelte.md}');
-	import { getAllPosts } from '$lib/util';
-
 	/**
 	 * @type {import('@sveltejs/kit').Load}
 	 */
-	export async function load() {
-		const allPosts = await getAllPosts(files);
-		const posts = allPosts.filter(([_, post]) => post.published);
-
-		posts.sort(([_slugA, a], [_slugB, b]) => a.date > b.date ? -1 : 1);
+	export async function load({ fetch }) {
+		const posts = await fetch('/posts.json').then((res) => res.json());
 
 		return {
 			props: {

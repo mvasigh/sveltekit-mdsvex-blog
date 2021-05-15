@@ -1,15 +1,9 @@
 <script context="module">
-	import { getAllPosts, fromEntries } from '$lib/util';
-
-	const files = import.meta.glob('./*.{md,svx,svelte.md}');
-
 	/**
 	 * @type {import('@sveltejs/kit').Load}
 	 */
-	export async function load({ page }) {
-		const slug = page.path.replace('/posts/', '');
-		const posts = await getAllPosts(files);
-		const post = fromEntries(posts)[slug];
+	export async function load({ page, fetch }) {
+		const post = await fetch(`${page.path}.json`).then(res => res.json());
 
 		if (!post || !post.published) {
 			return {
