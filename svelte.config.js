@@ -1,6 +1,6 @@
 import adapter from '@sveltejs/adapter-static';
 import md from 'mdsvex';
-import { mdsvexConfig } from './mdsvex.config.js';
+import mdsvexConfig from './mdsvex.config.js';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
