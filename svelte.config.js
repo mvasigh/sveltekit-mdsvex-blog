@@ -11,7 +11,7 @@ const config = {
 		target: '#svelte',
 		adapter: adapter(),
 		prerender: {
-			force: true
+			onError: 'continue'
 		}
 	}
 };
