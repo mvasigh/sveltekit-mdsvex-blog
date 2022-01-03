@@ -2,8 +2,8 @@
 	/**
 	 * @type {import('@sveltejs/kit').Load}
 	 */
-	export async function load({ page, fetch }) {
-		const post = await fetch(`${page.path}.json`).then(res => res.json());
+	export async function load({ url, fetch }) {
+		const post = await fetch(`${url.pathname}.json`).then(res => res.json());
 
 		if (!post || !post.published) {
 			return {

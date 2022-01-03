@@ -1,11 +1,11 @@
 import { slugFromPath } from '$lib/util';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ query }) {
+export async function get({ url }) {
 	const modules = import.meta.glob('./*.{md,svx,svelte.md}');
 
 	const postPromises = [];
-	const limit = Number(query.get('limit') ?? Infinity);
+	const limit = Number(url.searchParams.get('limit') ?? Infinity);
 
 	if (Number.isNaN(limit)) {
 		return {
