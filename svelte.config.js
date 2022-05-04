@@ -8,7 +8,6 @@ const config = {
 	preprocess: [md.mdsvex(mdsvexConfig)],
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte',
 		adapter: adapter(),
 		prerender: {
 			onError: 'continue'
