@@ -17,20 +17,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.0.1
-        with: 
-          version: next-7
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Setup
-        run: bash pnpm setup
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
       - name: Install packages
         run: pnpm ci
-      - name: Audit
-        run: pnpm audit
       - name: Build
         run: pnpm build
       - name: Test
