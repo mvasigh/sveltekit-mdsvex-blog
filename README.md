@@ -1,38 +1,49 @@
-# create-svelte
+# `sveltekit-mdsvex-blog`
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Minimalistic blog site template, built with [TypeScript](https://www.typescriptlang.org/), [Svelte](https://svelte.dev), [SvelteKit](https://kit.svelte.dev) and [MDsveX](https://mdsvex.com).
 
-## Creating a project
+[Live demo](https://sveltekit-mdsvex-blog.netlify.app)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Getting started
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+First, clone the repository and navigate to the project directory:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+git clone https://github.com/mvasigh/sveltekit-mdsvex-blog.git my-blog
+cd my-blog
 ```
 
-## Building
-
-To create a production version of your app:
+If you want to have a fresh commit history, blow away the `.git` directory and re-initialize the repository locally:
 
 ```bash
-npm run build
+rm -rf .git
+git init
 ```
 
-You can preview the production build with `npm run preview`.
+Next, install dependencies with NPM:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```bash
+npm install # or `pnpm i`
+```
+
+Finally, run the local development server:
+
+```bash
+npm run dev # or `pnpm dev`
+```
+
+## Building for production
+
+This project is pre-configured with [`@sveltejs/adapter-static`](https://github.com/sveltejs/kit/tree/master/packages/adapter-static). This makes deploying to static site hosts, such as Netlify, super easy. Simply add your site's repository to your static site host of choice, configure the build command to be `npm run build` and the build output directory to be `build`.
+
+## Starting from scratch
+
+You may want to create your own project from scratch using `create-svelte`. You can do so easily and add MDsveX support to your project using `svelte-add`:
+
+1. Create a new project per the [SvelteKit docs](https://kit.svelte.dev/docs#introduction-getting-started)
+2. [Add MDsveX to your project](https://github.com/svelte-add/mdsvex#-adding-to-sveltekit) using svelte-add
+3. Configure your site to your liking; files with the `.svelte.md`, `.md` and `.svx` extensions will be picked up by MDsveX by default
+
+## Questions?
+
+Feel free to ask any questions that you have! I am happy to try and answer them. The best way to reach me is by Mastodon, [@mehdi@mastodon.gamedev.place](https://mastodon.gamedev.place/@mehdi), but you can also [open an issue in this repository](https://github.com/mvasigh/sveltekit-mdsvex-blog/issues/new).
