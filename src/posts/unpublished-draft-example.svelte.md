@@ -1,8 +1,8 @@
 ---
-title: "Unpublished draft example"
-description: "This blog post is not yet ready to be seen by the world"
-author: "Mehdi Vasigh"
-date: "2021-05-10"
+title: 'Unpublished draft example'
+description: 'This blog post is not yet ready to be seen by the world'
+author: 'Mehdi Vasigh'
+date: '2021-05-10'
 published: false
 ---
 
