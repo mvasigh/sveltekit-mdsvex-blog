@@ -17,11 +17,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with: 
+          version: next
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - run: pnpm ci
-      - run: pnpm build --if-present
-      - run: pnpm test
+      - name: Install npm@7
+        run: pnpm add --global npm@7
+      - name: pnpm install
+        run: pnpm ci
+      - name: Audit
+        run: pnpm audit
+      - name: Build
+        run: pnpm build
+      - name: Test
+        run: pnpm test
