@@ -25,7 +25,7 @@ jobs:
         with:
           version: 7
       - name: Install packages
-        run: pnpm ci
+        run: pnpm install
       - name: Build
         run: pnpm build
       - name: Test
