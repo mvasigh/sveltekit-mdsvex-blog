@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
 	export let slug = '';
-	export let title;
+	export let title: string;
 
 	const id = title
 		.toLowerCase()

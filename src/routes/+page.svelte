@@ -1,28 +1,13 @@
-<script context="module">
-	/**
-	 * @type {import('@sveltejs/kit').Load}
-	 */
-	export async function load({ fetch }) {
-		// Use a `limit` querystring parameter to fetch a limited number of posts
-		// e.g. fetch('posts.json?limit=5') for 5 most recent posts
-		const posts = await fetch('/posts.json').then((res) => res.json());
+<script lang="ts">
+	import type { PageData } from './$types';
 
-		return {
-			props: {
-				posts
-			}
-		};
-	}
-</script>
-
-<script>
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Article from '$lib/components/Article.svelte';
 	import ArticleTitle from '$lib/components/ArticleTitle.svelte';
 	import ArticleMeta from '$lib/components/ArticleMeta.svelte';
 	import ArticleDescription from '$lib/components/ArticleDescription.svelte';
 
-	export let posts;
+	export let data: PageData;
 </script>
 
 <PageHead title="Home" description="An awesome blog about development with Svelte" />
@@ -33,7 +18,7 @@
 	<a href="https://github.com/mvasigh/sveltekit-mdsvex-blog">View source code on Github.</a>
 </p>
 
-{#each posts as { slug, title, author, description, date }}
+{#each data.posts as { slug, title, author, description, date }}
 	<Article>
 		<ArticleTitle {slug} {title} />
 		<ArticleMeta {author} {date} />

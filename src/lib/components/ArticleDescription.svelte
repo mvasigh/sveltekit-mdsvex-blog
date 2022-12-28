@@ -1,5 +1,5 @@
-<script>
-	export let description;
+<script lang="ts">
+	export let description: string;
 	export let slug = '';
 
 	const href = slug && `/posts/${slug}`;
