@@ -16,6 +16,10 @@ Here's a random Svelte component thrown into my MDsveX markdown:
 
 <Counter />
 
+## Link to other page
+
+[A second blog post](/posts/a-second-post)
+
 ## Example heading
 
 In lectus erat, maximus sed pulvinar eu, elementum vehicula mi. Maecenas nec dui urna. Nunc at magna purus. Cras facilisis, purus in dignissim egestas, ante ligula malesuada leo, quis malesuada dolor tortor vitae mauris. Morbi auctor mauris nibh, ut sodales tortor volutpat in. Donec aliquet ex eget ullamcorper semper. Proin vel libero at nulla gravida blandit. Maecenas odio massa, pretium blandit lectus ac, vehicula ultrices justo. Suspendisse libero dolor, tristique quis laoreet vel, placerat vel nisl. Nunc et venenatis nunc, vitae fringilla risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus consectetur pellentesque ipsum, in hendrerit lectus ultricies quis. Morbi ultrices, elit nec lacinia vulputate, dolor nibh commodo justo, quis dictum nisi nulla vel mi.
