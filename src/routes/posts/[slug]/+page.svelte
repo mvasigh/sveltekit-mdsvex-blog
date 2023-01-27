@@ -7,9 +7,9 @@
 	import ArticleMeta from '$lib/components/ArticleMeta.svelte';
 
 	export let data: PageData;
-	
+
 	type C = $$Generic<typeof SvelteComponentTyped<any, any, any>>;
-	const component = data.component as unknown as C;
+	$: component = data.component as unknown as C;
 </script>
 
 <PageHead title={data.frontmatter.title} description={data.frontmatter.description} />
